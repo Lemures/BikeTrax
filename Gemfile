@@ -1,11 +1,17 @@
 source 'https://rubygems.org'
 
+#Cloud Communication Api
 gem 'particlerb', '~> 0.0.3'
+
+#Devise Communication
+gem 'ruby_spark'
 
 
 gem 'friendly_id'
 
 gem 'figaro'
+
+gem 'gmaps4rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'

@@ -63,6 +63,10 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -81,6 +85,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
+    multi_xml (0.5.5)
     multipart-post (2.0.0)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
@@ -141,6 +146,8 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    ruby_spark (2.0.0)
+      httparty (~> 0.13)
     sass (3.4.20)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -185,6 +192,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   figaro
   friendly_id
+  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
   particlerb (~> 0.0.3)
@@ -192,6 +200,7 @@ DEPENDENCIES
   rails (= 4.2.4)
   rails_12factor
   rspec-rails (~> 3.0)
+  ruby_spark
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
