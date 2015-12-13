@@ -1,17 +1,23 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+
+gem 'less-rails-bootstrap'
+gem 'twitter-bootstrap-rails'
+
+gem 'polylines'
+
+gem 'paperclip'
+
 #Cloud Communication Api
 gem 'particlerb', '~> 0.0.3'
 
 #Devise Communication
 gem 'ruby_spark'
 
-
 gem 'friendly_id'
 
 gem 'figaro'
-
-gem 'gmaps4rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -64,3 +70,6 @@ group :production do
   gem 'rails_12factor'
 
 end
+
+
+
