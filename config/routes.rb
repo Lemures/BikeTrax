@@ -2,7 +2,15 @@ Rails.application.routes.draw do
 
   root 'user#index'
 
-  resources :user
+  #resources :device
+  get '/device/:id', to: 'user#map' , as: 'device_map'
+
+  post 'ledToggle/:id', to: 'user#ledToggle' , as: 'function_led'
+
+  resources :user do
+
+    #resources :device
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

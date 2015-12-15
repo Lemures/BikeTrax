@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
-gem 'less-rails-bootstrap'
-gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass'
 
 gem 'polylines'
 

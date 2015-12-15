@@ -1,1 +1,38 @@
-<h1>Hello world!</h1>
+
+
+  <div class="col-md-9" role="main" style="margin: auto">
+  <div class="panel panel-primary" style="width: 100%">
+      <h2 class="panel-heading">List of Devices</h2>
+      <div class="panel-body">
+        <% @devices.each do |device| %>
+            <table class='table' style="alignment:center" >
+              <tr>
+                <th>Name</th>
+                <th>Device ID</th>
+                <th>Recent Position</th>
+                <th>Power Mode</th>
+                <th>Status</th>
+
+              </tr>
+              <tr href="#">
+                <td><%= link_to device.get_attributes[:name], device_map_path(device.get_attributes[:id]) %></td>
+                <td><%= link_to device.get_attributes[:id], device_map_path(device.get_attributes[:id]) %></td>
+                <td><%= device.variable('gpsPos')%></td>
+                <td><%= device.variable('PowerMode')%></td>
+                <!--<td><%= device.get_attributes[:connected] ? 'Online' : 'Off-line' %></td>-->
+                <% if device.get_attributes[:connected]%>
+                    <td>
+                      <a style="color:#2EFE2E">Online</a>
+                    </td>
+                <% else %>
+                    <td>
+                    <a style="color:red">Offline</a>
+                    </td>
+                <%end%>
+              </tr>
+            </table>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
