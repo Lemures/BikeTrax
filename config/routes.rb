@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users , :controller => {registrations: 'registrations'}
   root 'user#index'
 
   #resources :device
@@ -8,7 +9,6 @@ Rails.application.routes.draw do
   post 'ledToggle/:id', to: 'user#ledToggle' , as: 'function_led'
 
   resources :user do
-
     #resources :device
   end
 

@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :firstname
       t.string :lastname
       t.string :access_token
-      t.string :device_token
+      t.string :devices
 
       t.timestamps null: false
     end

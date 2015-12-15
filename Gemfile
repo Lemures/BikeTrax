@@ -8,6 +8,9 @@ gem 'polylines'
 
 gem 'paperclip'
 
+# https://github.com/typhoeus/typhoeus
+gem 'typhoeus'
+
 #Cloud Communication Api
 gem 'particlerb', '~> 0.0.3'
 
