@@ -68,9 +68,3 @@
 <% else %>
     <%= button_to "Toggle LED on", function_led_path(params[:id]) , class: 'btn btn-primary' %>
 <% end %>
-
-<% if @device.variable('gpsPos')== 'on' %>
-    <%= button_to "Toggle LED off", function_led_path(params[:id]) , class: 'btn btn-primary' %>
-<% else %>
-    <%= button_to "Toggle LED on", function_led_path(params[:id]) , class: 'btn btn-primary' %>
-<% end %>
