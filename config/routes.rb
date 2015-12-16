@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   post 'ledToggle/:id', to: 'user#ledToggle' , as: 'function_led'
 
+  post 'gpsToggle/:id', to: 'user#gpsToggle' , as: 'function_gps'
+
   resources :user do
     #resources :device
   end
