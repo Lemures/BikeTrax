@@ -1,7 +1,8 @@
 class UserController < ApplicationController
   before_action :set_devices
 
-  #before_action :authenticate_user! , except: :index
+  # before_action :authenticate_user! , except: :index
+  before_action :authenticate_user!
 
 
   def index
@@ -75,18 +76,6 @@ class UserController < ApplicationController
 
   end
 
-
-  #   def new
-  #
-  #      @user = User.new
-  #
-  #   end
-  #
-  #
-  # def create
-  # @user = User.new(user_params)
-  #
-  # end
 
   private
 

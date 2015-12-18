@@ -58,7 +58,8 @@ ActiveRecord::Schema.define(version: 20151215193403) do
     t.string   "firstname"
     t.string   "lastname"
     t.string   "access_token"
-    t.string   "devices"
+    t.text     "tracker_name"
+    t.text     "tracker_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
