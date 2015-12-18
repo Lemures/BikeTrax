@@ -4,6 +4,9 @@ class UserController < ApplicationController
   # before_action :authenticate_user! , except: :index
   before_action :authenticate_user!
 
+  after_action :session_config
+
+
 
   def index
 
@@ -81,7 +84,7 @@ class UserController < ApplicationController
 
   def user_params
 
-    params.require(:user).permit(:email, :password, :password_confirmation, :username, :devices)
+    params.require(:user).permit(:email, :password, :password_confirmation, :username, :tracker_id)
 
   end
 
@@ -89,6 +92,19 @@ class UserController < ApplicationController
 
     @devices = Particle.devices
 
+  end
+
+  def session_config
+
+    if user_signed_in?
+
+      session[:accessToken] = current_user.access_token
+
+    else
+
+      redirect_to new_user_session_path
+
+    end
   end
 
 end
