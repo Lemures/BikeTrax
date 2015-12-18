@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-  before_action :set_devices
+  #before_action :set_devices
 
   # before_action :authenticate_user! , except: :index
   before_action :authenticate_user!
@@ -7,7 +7,7 @@ class UserController < ApplicationController
 
   def index
 
-    @devices
+    #@devices
 
   end
 

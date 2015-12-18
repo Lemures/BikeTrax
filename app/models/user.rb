@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
 
   end
 
+
   def add_user_to_cloud
 
   # basic = Base64.encode64("")
@@ -41,6 +42,17 @@ class User < ActiveRecord::Base
                                   userpwd: "#{ENV{'client_id'}}:#{ENV{'client_secret'}}")
 
   request.run
+
+    set_scoped_access = Typhoeus::Request.new('https://api.particle.io/oauth/token',
+                                              method: :post,
+                                              body: {scope: "customer=#{self.email}",
+                                                     grant_type: 'client_credentials',
+                                                     expires_in: '7776000'},
+                                              userpwd: "#{ENV{'client_id'}}:#{ENV{'client_secret'}}")
+
+  set_scoped_access.run
+
+
 
 
   end

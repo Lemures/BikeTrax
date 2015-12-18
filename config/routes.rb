@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users , :controllers => {registrations: 'registrations'}
 
-  root 'user#index'
+  root 'user#index_02'
 
   #resources :device
   get '/device/:id', to: 'user#map' , as: 'device_map'
@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :user do
     #resources :device
   end
+
+  resources :config
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
