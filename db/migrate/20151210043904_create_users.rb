@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :firstname
       t.string :lastname
       t.string :access_token
+      t.string :refresh_token
       t.text :tracker_name
       t.text :tracker_id
 

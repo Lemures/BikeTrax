@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   #validations
   validates :username , presence: true , uniqueness: true
-  validates :tracker_id, uniqueness: true
+  #validates :tracker_id
   # validates :access_token, after_create: { presence: true , uniqueness: true  }
 
 #varibale configurations
@@ -45,18 +45,21 @@ class User < ActiveRecord::Base
 
   def add_user_to_cloud
 
-  # basic = Base64.encode64("")
-  request = Typhoeus::Request.new('https://api.particle.io/v1/orgs/subtletrax/customers',
-                                   method: :post,
-                                   body: {email: self.email , no_password: 'true'},
-                                  userpwd: "#{ENV{'client_id'}}:#{ENV{'client_secret'}}")
+    request = Typhoeus::Request.new('https://api.particle.io/v1/orgs/subtletrax/customers',
+                                     method: :post,
+                                     body: {email: self.email , no_password: 'true'},
+                                    userpwd: "#{ENV['client_id']}:#{ENV['client_secret']}")
 
-  request.run
+    request.run
 
-  response= request.response.body
-  response_json = JSON.parse(response)
+    response= request.response.body
+    response_json = JSON.parse(response)
 
-  self.access_token = response_json['access_token'][0]
+    puts response_json.to_yaml
+
+    self.update(:access_token => response_json['access_token'])
+    self.update(:refresh_token => response_json['refresh_token'])
+    #self.save
 
 
     #   set_scoped_access = Typhoeus::Request.new('https://api.particle.io/oauth/token',
@@ -71,9 +74,7 @@ class User < ActiveRecord::Base
   # response= set_scoped_access.response.body
   # response_json = JSON.parse(response)
   # self.access_token = response_json['access_token'][0]
-
-
-
-
   end
+
+
 end

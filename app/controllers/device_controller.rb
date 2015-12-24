@@ -15,13 +15,27 @@ class DeviceController < ApplicationController
 
   def map
 
-    @device = RubySpark::Device.new(params[:id])
+    if @devices.exists?
 
-    @gpsCoords = @device.variable('gpsPos').split(',')
+      @device = RubySpark::Device.new(params[:id])
 
-    @lat = @gpsCoords[0]
+      @gpsCoords = @device.variable('gpsPos').split(',')
 
-    @lng = @gpsCoords[1]
+      @lat = @gpsCoords[0]
+
+      @lng = @gpsCoords[1]
+
+    else
+      @device = [{:gpsPos => "empty , empty" }]
+
+      @gpsCoords = @device.variable('gpsPos').split(',')
+
+      @lat = @gpsCoords[0]
+
+      @lng = @gpsCoords[1]
+    end
+
+
 
   end
 
@@ -29,7 +43,9 @@ class DeviceController < ApplicationController
 
     def set_devices
 
-      @devices = Particle.device
+      @devices = Particle.devices
+
+
 
     end
 
